@@ -1,0 +1,732 @@
+/* CryptoHub - Professional Cryptocurrency Dashboard */
+
+:root {
+  --primary-bg: #0f172a;
+  --secondary-bg: #1e293b;
+  --card-bg: #334155;
+  --accent-blue: #3b82f6;
+  --accent-purple: #8b5cf6;
+  --success-green: #10b981;
+  --warning-orange: #f59e0b;
+  --danger-red: #ef4444;
+  --text-primary: #f8fafc;
+  --text-secondary: #94a3b8;
+  --border-color: #475569;
+  --gradient-primary: linear-gradient(135deg, var(--accent-blue), var(--accent-purple));
+  --gradient-success: linear-gradient(135deg, #10b981, #059669);
+  --gradient-danger: linear-gradient(135deg, #ef4444, #dc2626);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background: var(--primary-bg);
+  color: var(--text-primary);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+/* Typography */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 600;
+  line-height: 1.2;
+  margin-bottom: 0.5rem;
+}
+
+/* Navigation */
+.crypto-navbar {
+  background: var(--secondary-bg) !important;
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--border-color);
+  padding: 0.75rem 0;
+}
+
+.navbar-brand {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--text-primary) !important;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.navbar-brand:hover {
+  transform: translateY(-1px);
+  color: var(--warning-orange) !important;
+}
+
+.nav-link {
+  color: var(--text-secondary) !important;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  border-radius: 0.5rem;
+  margin: 0 0.25rem;
+  padding: 0.5rem 1rem !important;
+}
+
+.nav-link:hover, .nav-link.active {
+  color: var(--warning-orange) !important;
+  background-color: rgba(251, 191, 36, 0.1);
+  transform: translateY(-1px);
+}
+
+/* Main Content */
+.main-content {
+  padding-top: 80px;
+  min-height: 100vh;
+  background: linear-gradient(135deg, var(--primary-bg) 0%, #1a202c 50%, var(--primary-bg) 100%);
+}
+
+/* Cards */
+.crypto-card {
+  background: var(--secondary-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 1rem;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.crypto-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(59, 130, 246, 0.15);
+  border-color: var(--accent-blue);
+}
+
+.card-header {
+  background: transparent;
+  border-bottom: 1px solid var(--border-color);
+  padding: 1.25rem;
+  border-radius: 1rem 1rem 0 0 !important;
+}
+
+.card-body {
+  padding: 1.25rem;
+}
+
+/* Stats Cards */
+.stat-card {
+  padding: 1.5rem;
+  background: linear-gradient(135deg, var(--card-bg), var(--secondary-bg));
+  border-radius: 0.75rem;
+  border: 1px solid var(--border-color);
+  transition: all 0.3s ease;
+}
+
+.stat-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 30px rgba(59, 130, 246, 0.2);
+}
+
+/* Tables */
+.crypto-table {
+  background: transparent;
+}
+
+.crypto-table th {
+  background: var(--card-bg);
+  border-color: var(--border-color);
+  color: var(--text-secondary);
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  letter-spacing: 0.05em;
+  padding: 1rem 0.75rem;
+}
+
+.crypto-table td {
+  border-color: var(--border-color);
+  padding: 1rem 0.75rem;
+  vertical-align: middle;
+}
+
+.crypto-table tbody tr {
+  transition: all 0.2s ease;
+}
+
+.crypto-table tbody tr:hover {
+  background-color: rgba(59, 130, 246, 0.05);
+}
+
+/* Coins */
+.coin-info {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.coin-logo {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: var(--gradient-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  color: white;
+  font-size: 0.75rem;
+}
+
+.coin-name {
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.coin-symbol {
+  color: var(--text-secondary);
+  font-size: 0.875rem;
+}
+
+/* Price Changes */
+.price-positive {
+  color: var(--success-green) !important;
+}
+
+.price-negative {
+  color: var(--danger-red) !important;
+}
+
+.price-neutral {
+  color: var(--text-secondary) !important;
+}
+
+/* Badges */
+.badge {
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 0.375rem 0.75rem;
+  border-radius: 0.375rem;
+}
+
+.badge.bg-success {
+  background: var(--gradient-success) !important;
+}
+
+.badge.bg-danger {
+  background: var(--gradient-danger) !important;
+}
+
+.badge.bg-warning {
+  background: linear-gradient(135deg, var(--warning-orange), #d97706) !important;
+}
+
+/* Buttons */
+.btn-warning {
+  background: var(--gradient-primary);
+  border: none;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  border-radius: 0.5rem;
+  padding: 0.5rem 1.5rem;
+}
+
+.btn-warning:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(59, 130, 246, 0.4);
+  background: linear-gradient(135deg, #2563eb, #7c3aed);
+}
+
+.btn-outline-warning {
+  border-color: var(--accent-blue);
+  color: var(--accent-blue);
+  background: transparent;
+  transition: all 0.3s ease;
+}
+
+.btn-outline-warning:hover {
+  background: var(--accent-blue);
+  border-color: var(--accent-blue);
+  color: white;
+  transform: translateY(-1px);
+}
+
+.btn-outline-warning.active {
+  background: var(--accent-blue);
+  border-color: var(--accent-blue);
+  color: white;
+}
+
+/* Forms */
+.form-control {
+  background: var(--card-bg) !important;
+  border-color: var(--border-color) !important;
+  color: var(--text-primary) !important;
+  border-radius: 0.5rem;
+  transition: all 0.3s ease;
+}
+
+.form-control:focus {
+  border-color: var(--accent-blue) !important;
+  box-shadow: 0 0 0 0.2rem rgba(59, 130, 246, 0.25) !important;
+  background: var(--secondary-bg) !important;
+}
+
+.form-select {
+  background: var(--card-bg) !important;
+  border-color: var(--border-color) !important;
+  color: var(--text-primary) !important;
+}
+
+/* Charts */
+.chart-container {
+  position: relative;
+  height: 400px;
+  background: var(--card-bg);
+  border-radius: 0.75rem;
+  padding: 1rem;
+}
+
+#tradingChart {
+  background: var(--card-bg);
+  border-radius: 0.5rem;
+}
+
+/* News Cards */
+.news-card {
+  background: var(--secondary-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 0.75rem;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  margin-bottom: 1rem;
+}
+
+.news-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+  border-color: var(--accent-blue);
+}
+
+.news-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.news-card:hover img {
+  transform: scale(1.05);
+}
+
+.featured-news {
+  height: 100%;
+}
+
+.news-item {
+  padding: 1rem;
+  border-bottom: 1px solid var(--border-color);
+  transition: all 0.2s ease;
+}
+
+.news-item:hover {
+  background: rgba(59, 130, 246, 0.05);
+}
+
+.news-item:last-child {
+  border-bottom: none;
+}
+
+/* Market Info */
+.market-info-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.75rem 0;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.market-info-item:last-child {
+  border-bottom: none;
+}
+
+/* Portfolio Specific */
+.portfolio-stat {
+  text-align: center;
+  padding: 1.5rem;
+  background: var(--card-bg);
+  border-radius: 0.75rem;
+  border: 1px solid var(--border-color);
+  transition: all 0.3s ease;
+}
+
+.portfolio-stat:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(16, 185, 129, 0.15);
+}
+
+.portfolio-value {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  background: var(--gradient-success);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Technical Analysis */
+.tech-indicator {
+  background: var(--card-bg);
+  padding: 1rem;
+  border-radius: 0.5rem;
+  border: 1px solid var(--border-color);
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.tech-indicator:hover {
+  border-color: var(--accent-blue);
+  box-shadow: 0 4px 15px rgba(59, 130, 246, 0.2);
+}
+
+/* Support & Resistance */
+.support-resistance {
+  background: var(--card-bg);
+  padding: 1.25rem;
+  border-radius: 0.75rem;
+  border: 1px solid var(--border-color);
+}
+
+.support-resistance .level {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.support-resistance .level:last-child {
+  border-bottom: none;
+}
+
+/* Order Book */
+.order-book-table {
+  font-size: 0.875rem;
+}
+
+.order-book-sell {
+  color: var(--danger-red);
+}
+
+.order-book-buy {
+  color: var(--success-green);
+}
+
+/* Trending Topics */
+.trending-item {
+  display: flex;
+  align-items: center;
+  padding: 0.75rem 0;
+  border-bottom: 1px solid var(--border-color);
+  transition: all 0.2s ease;
+}
+
+.trending-item:hover {
+  background: rgba(59, 130, 246, 0.05);
+  padding-left: 0.5rem;
+}
+
+.trending-item:last-child {
+  border-bottom: none;
+}
+
+.trending-rank {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  background: var(--gradient-primary);
+  color: white;
+  border-radius: 50%;
+  font-weight: bold;
+  font-size: 0.875rem;
+  margin-right: 1rem;
+}
+
+/* Sentiment Gauge */
+.sentiment-gauge {
+  position: relative;
+  width: 200px;
+  height: 200px;
+  margin: 0 auto;
+}
+
+.circular-progress {
+  position: relative;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  background: conic-gradient(
+    from 0deg,
+    var(--danger-red) 0deg 36deg,
+    var(--warning-orange) 36deg 108deg,
+    var(--success-green) 108deg 180deg,
+    var(--success-green) 180deg 360deg
+  );
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.circular-progress::before {
+  content: '';
+  position: absolute;
+  width: 160px;
+  height: 160px;
+  background: var(--secondary-bg);
+  border-radius: 50%;
+}
+
+.inner-circle {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+}
+
+.percentage {
+  font-size: 2rem;
+  font-weight: bold;
+  color: var(--text-primary);
+  display: block;
+}
+
+.sentiment-label {
+  font-size: 1rem;
+  color: var(--text-secondary);
+}
+
+/* Alert Items */
+.alert-item {
+  border-radius: 0.5rem;
+  transition: all 0.2s ease;
+}
+
+.alert-item:hover {
+  transform: translateX(4px);
+}
+
+/* Loading Animation */
+.loading-spinner {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  border: 3px solid var(--border-color);
+  border-radius: 50%;
+  border-top-color: var(--accent-blue);
+  animation: spin 1s ease-in-out infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* Sparkline Charts */
+.sparkline {
+  width: 100px;
+  height: 40px;
+}
+
+/* Price Movement Animation */
+.price-flash-up {
+  animation: flashGreen 1s ease-in-out;
+}
+
+.price-flash-down {
+  animation: flashRed 1s ease-in-out;
+}
+
+@keyframes flashGreen {
+  0%, 100% { background-color: transparent; }
+  50% { background-color: rgba(16, 185, 129, 0.2); }
+}
+
+@keyframes flashRed {
+  0%, 100% { background-color: transparent; }
+  50% { background-color: rgba(239, 68, 68, 0.2); }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .main-content {
+    padding-top: 70px;
+  }
+  
+  .stat-card {
+    padding: 1rem;
+    margin-bottom: 1rem;
+  }
+  
+  .coin-info {
+    flex-direction: column;
+    text-align: center;
+    gap: 0.5rem;
+  }
+  
+  .crypto-table {
+    font-size: 0.875rem;
+  }
+  
+  .crypto-table th,
+  .crypto-table td {
+    padding: 0.5rem 0.25rem;
+  }
+  
+  .portfolio-value {
+    font-size: 1.5rem;
+  }
+  
+  .news-card img {
+    height: 150px;
+  }
+}
+
+@media (max-width: 576px) {
+  .container-fluid {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+  
+  .card-body {
+    padding: 1rem;
+  }
+  
+  .sentiment-gauge,
+  .circular-progress {
+    width: 150px;
+    height: 150px;
+  }
+  
+  .circular-progress::before {
+    width: 120px;
+    height: 120px;
+  }
+  
+  .percentage {
+    font-size: 1.5rem;
+  }
+}
+
+/* Animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in-up {
+  animation: fadeInUp 0.6s ease-out;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--primary-bg);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border-color);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent-blue);
+}
+
+/* Live Badge Pulse */
+.live-badge {
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.7;
+  }
+}
+
+/* Modal Styles */
+.modal-content {
+  background: var(--secondary-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 1rem;
+}
+
+.modal-header {
+  border-bottom-color: var(--border-color);
+}
+
+.modal-footer {
+  border-top-color: var(--border-color);
+}
+
+/* Dropdown Styles */
+.dropdown-menu {
+  background: var(--secondary-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 0.75rem;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+.dropdown-item {
+  color: var(--text-secondary);
+  transition: all 0.2s ease;
+}
+
+.dropdown-item:hover {
+  background: var(--card-bg);
+  color: var(--text-primary);
+}
+
+/* Pagination */
+.pagination .page-link {
+  background: var(--secondary-bg);
+  border-color: var(--border-color);
+  color: var(--text-secondary);
+}
+
+.pagination .page-link:hover {
+  background: var(--accent-blue);
+  border-color: var(--accent-blue);
+  color: white;
+}
+
+.pagination .page-item.active .page-link {
+  background: var(--accent-blue);
+  border-color: var(--accent-blue);
+}
+
+/* Utility Classes */
+.text-gradient {
+  background: var(--gradient-primary);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.bg-glass {
+  background: rgba(51, 65, 85, 0.8);
+  backdrop-filter: blur(10px);
+}
+
+.border-gradient {
+  border: 1px solid transparent;
+  background: linear-gradient(var(--secondary-bg), var(--secondary-bg)) padding-box,
+              var(--gradient-primary) border-box;
+}

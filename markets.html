@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Markets - CryptoHub</title>
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Navigation (same as index.html) -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top crypto-navbar">
+        <div class="container-fluid">
+            <a class="navbar-brand fw-bold" href="index.html">
+                <i class="fas fa-coins text-warning me-2"></i>
+                CryptoHub
+            </a>
+            
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">
+                            <i class="fas fa-home me-1"></i>Dashboard
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="markets.html">
+                            <i class="fas fa-chart-line me-1"></i>Markets
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="portfolio.html">
+                            <i class="fas fa-wallet me-1"></i>Portfolio
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="charts.html">
+                            <i class="fas fa-chart-area me-1"></i>Charts
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="news.html">
+                            <i class="fas fa-newspaper me-1"></i>News
+                        </a>
+                    </li>
+                </ul>
+                
+                <div class="d-flex align-items-center">
+                    <div class="input-group me-3" style="width: 300px;">
+                        <input type="text" class="form-control bg-dark text-white border-secondary" 
+                               placeholder="Search cryptocurrencies..." id="searchInput">
+                        <button class="btn btn-outline-warning" type="button">
+                            <i class="fas fa-search"></i>
+                        </button>
+                    </div>
+                    
+                    <div class="dropdown">
+                        <button class="btn btn-outline-light dropdown-toggle me-2" type="button" 
+                                data-bs-toggle="dropdown">
+                            <i class="fas fa-bell"></i>
+                        </button>
+                        <ul class="dropdown-menu dropdown-menu-dark">
+                            <li><a class="dropdown-item" href="#">Price Alerts</a></li>
+                            <li><a class="dropdown-item" href="#">News Updates</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="#">Settings</a></li>
+                        </ul>
+                    </div>
+                    
+                    <button class="btn btn-warning">
+                        <i class="fas fa-user me-1"></i>Account
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="container-fluid">
+            <!-- Page Header -->
+            <div class="row mb-4">
+                <div class="col-12">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div>
+                            <h2 class="text-white mb-1">Cryptocurrency Markets</h2>
+                            <p class="text-muted">Comprehensive market data for all cryptocurrencies</p>
+                        </div>
+                        <div class="d-flex gap-2">
+                            <button class="btn btn-outline-warning">
+                                <i class="fas fa-download me-1"></i>Export Data
+                            </button>
+                            <button class="btn btn-warning">
+                                <i class="fas fa-plus me-1"></i>Add to Watchlist
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Market Filters -->
+            <div class="row mb-4">
+                <div class="col-12">
+                    <div class="card crypto-card">
+                        <div class="card-body">
+                            <div class="row align-items-center">
+                                <div class="col-md-3">
+                                    <select class="form-select bg-dark text-white border-secondary">
+                                        <option>All Categories</option>
+                                        <option>DeFi</option>
+                                        <option>NFT</option>
+                                        <option>Gaming</option>
+                                        <option>Layer 1</option>
+                                        <option>Layer 2</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-3">
+                                    <select class="form-select bg-dark text-white border-secondary">
+                                        <option>Market Cap: High to Low</option>
+                                        <option>Market Cap: Low to High</option>
+                                        <option>Price: High to Low</option>
+                                        <option>Price: Low to High</option>
+                                        <option>24h %: High to Low</option>
+                                        <option>24h %: Low to High</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="input-group">
+                                        <span class="input-group-text bg-dark text-white border-secondary">$</span>
+                                        <input type="number" class="form-control bg-dark text-white border-secondary" 
+                                               placeholder="Min Market Cap">
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="btn-group w-100" role="group">
+                                        <button type="button" class="btn btn-outline-warning active">All</button>
+                                        <button type="button" class="btn btn-outline-warning">Gainers</button>
+                                        <button type="button" class="btn btn-outline-warning">Losers</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Market Data Table -->
+            <div class="row">
+                <div class="col-12">
+                    <div class="card crypto-card">
+                        <div class="card-header d-flex justify-content-between align-items-center">
+                            <h5 class="mb-0">
+                                <i class="fas fa-list me-2"></i>All Cryptocurrencies
+                            </h5>
+                            <div class="d-flex align-items-center gap-3">
+                                <span class="text-muted small">Showing 1-100 of 2,847 results</span>
+                                <div class="btn-group btn-group-sm" role="group">
+                                    <button type="button" class="btn btn-outline-warning">
+                                        <i class="fas fa-table"></i>
+                                    </button>
+                                    <button type="button" class="btn btn-outline-warning">
+                                        <i class="fas fa-th-large"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-body p-0">
+                            <div class="table-responsive">
+                                <table class="table table-dark table-hover mb-0 crypto-table">
+                                    <thead class="sticky-top">
+                                        <tr>
+                                            <th>
+                                                <i class="fas fa-star text-warning"></i>
+                                            </th>
+                                            <th>#</th>
+                                            <th>Name</th>
+                                            <th>Price</th>
+                                            <th>1h %</th>
+                                            <th>24h %</th>
+                                            <th>7d %</th>
+                                            <th>Market Cap</th>
+                                            <th>Volume (24h)</th>
+                                            <th>Circulating Supply</th>
+                                            <th>Last 7 Days</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="marketsTableBody">
+                                        <!-- Market data will be populated here -->
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="card-footer">
+                            <nav>
+                                <ul class="pagination pagination-dark mb-0 justify-content-center">
+                                    <li class="page-item disabled">
+                                        <a class="page-link" href="#"><i class="fas fa-chevron-left"></i></a>
+                                    </li>
+                                    <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                                    <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                    <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                    <li class="page-item"><span class="page-link">...</span></li>
+                                    <li class="page-item"><a class="page-link" href="#">29</a></li>
+                                    <li class="page-item">
+                                        <a class="page-link" href="#"><i class="fas fa-chevron-right"></i></a>
+                                    </li>
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Custom JavaScript -->
+    <script src="markets.js"></script>
+</body>
+</html>
